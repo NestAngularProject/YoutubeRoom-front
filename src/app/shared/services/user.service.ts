@@ -12,7 +12,7 @@ import { defaultIfEmpty, filter, map } from 'rxjs/operators';
 export class UserService {
   // private property to store all backend URLs
   private readonly _backendURL: any;
-  // private property to store default person
+  // private property to store default user
   private readonly _defaultUser: User;
 
   constructor(private _http: HttpClient) {
@@ -45,7 +45,7 @@ export class UserService {
    * Function to return the list of users
    */
   fetch(): Observable<User[]> {
-    return this._http.get<User[]>(this._backendURL.allPeople)
+    return this._http.get<User[]>(this._backendURL.allUsers)
       .pipe(
         filter(_ => !!_),
         defaultIfEmpty([])
@@ -56,30 +56,30 @@ export class UserService {
    * Function to return one user using it's username
    */
   fetchOne(username: string): Observable<User> {
-    return this._http.get<User>(this._backendURL.onePeople.replace(':id', username));
+    return this._http.get<User>(this._backendURL.oneUser.replace(':username', username));
   }
 
   /**
-   * Function to create a new person
+   * Function to create a new user
    */
-  create(person: Person): Observable<any> {
-    return this._http.post<Person>(this._backendURL.allPeople, person, this._options());
+  create(user: User): Observable<any> {
+    return this._http.post<User>(this._backendURL.allUsers, user, this._options());
   }
 
   /**
-   * Function to update one person
+   * Function to update one user
    */
-  update(person: Person): Observable<any> {
-    return this._http.put<Person>(this._backendURL.onePeople.replace(':id', person.id), person, this._options());
+  update(user: User): Observable<any> {
+    return this._http.put<User>(this._backendURL.oneUser.replace(':username', user.username), user, this._options());
   }
 
   /**
-   * Function to delete one person for current id
+   * Function to delete one user using it's username
    */
-  delete(id: string): Observable<string> {
-    return this._http.delete(this._backendURL.onePeople.replace(':id', id))
+  delete(username: string): Observable<string> {
+    return this._http.delete(this._backendURL.oneUser.replace(':username', username))
       .pipe(
-        map(_ => id)
+        map(_ => username)
       );
   }
 
