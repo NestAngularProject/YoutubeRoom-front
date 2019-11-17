@@ -6,7 +6,7 @@
 
     <p *ngIf="isUpdateMode">
       <span style="width:100%">ID (disabled)</span><br/>
-      <span style="width:100%">{{model.id}}</span>
+      <span style="width:100%">{{model.username}}</span>
     </p>
 
     <table class="full-width" cellspacing="0">
@@ -54,3 +54,12 @@
   <button mat-button type="button" [routerLink]="['/home']">Cancel</button>
   <button mat-button color="primary" type="submit" (click)="submit(form.value)" [disabled]="form.invalid">Save</button>
 </mat-dialog-actions>
+
+<nb-card accent="info" status="primary">
+  <nb-card-header>Nebula</nb-card-header>
+  <nb-card-body>
+    A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+    Originally, nebula was a name for any diffuse astronomical object,
+    including galaxies beyond the Milky Way.
+  </nb-card-body>
+</nb-card>

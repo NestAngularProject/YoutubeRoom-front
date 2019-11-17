@@ -19,8 +19,9 @@ import {
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { FormComponent } from './shared/form/form.component';
 import { UserComponent } from './user/user.component';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import {NbThemeModule, NbLayoutModule, NbCardModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+
 
 @NgModule({
   declarations: [
@@ -44,9 +45,10 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
-    NbThemeModule.forRoot({ name: 'cosmic' }),
+    NbThemeModule.forRoot({name: 'cosmic'}),
     NbLayoutModule,
     NbEvaIconsModule,
+    NbCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
