@@ -45,7 +45,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
-    NbThemeModule.forRoot({name: 'cosmic'}),
+    NbThemeModule.forRoot({name: 'custom-theme'}),
     NbLayoutModule,
     NbEvaIconsModule,
     NbCardModule,
