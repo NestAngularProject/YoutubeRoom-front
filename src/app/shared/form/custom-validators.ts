@@ -7,7 +7,7 @@ export class CustomValidators {
    */
   static emailValidator(control: FormControl) {
     // returns control
-    return /^\w+@+^\w\.w$/.test(control.value) ? null : {
+    return /^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/.test(control.value) ? null : {
       emailValidator: true
     };
   }

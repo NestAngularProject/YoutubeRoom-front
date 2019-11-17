@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="extend-toolbar">
   <span>
-    <a mat-button [routerLink]="['/profil']">
+    <a mat-button [routerLink]="['/home']">
       <i class="material-icons">movie_filter</i>
       Le nom du site
     </a>
@@ -15,7 +15,7 @@
   </span>
 
   <span>
-    <a mat-button (click)="showDialog()">
+    <a mat-button [routerLink]="['/login']">
       <i class="material-icons">power_settings_new</i>
     </a>
   </span>
