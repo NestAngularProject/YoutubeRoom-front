@@ -2,6 +2,10 @@
 @import '~@nebular/theme/styles/themes/dark';
 
 $nb-themes: nb-register-theme((
+  header-background-color: red,
+  card-background-color: white,
+  layout-background-color: rgba(174, 174, 174, 0.76),
+  footer-background-color: red,
   color-basic-100: white,
   color-basic-200: #eefafc,
   color-basic-300: #e8f5fa,

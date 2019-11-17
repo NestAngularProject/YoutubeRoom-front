@@ -1,5 +1,5 @@
-<nb-layout>
-  <nb-layout-header fixed>
+<nb-layout >
+  <nb-layout-header fixed >
       <span>
         <a mat-button [routerLink]="['/home']">
           <i class="material-icons">movie_filter</i>
@@ -7,7 +7,7 @@
         </a>
       </span>
 
-        <span class="styleFlex"></span>
+        <span class="flex"></span>
 
         <span>
         <a mat-button [routerLink]="['/profil']">
@@ -25,8 +25,9 @@
   <nb-layout-column>
     <router-outlet></router-outlet>
   </nb-layout-column>
+
   <nb-layout-footer fixed>
-  <!-- Insert footer here -->
+    <i class="material-icons">sentiment_very_satisfied</i>
   </nb-layout-footer>
 
 </nb-layout>

@@ -1,9 +1,13 @@
 <div class="row">
-  <div class="col-md-6">
-    <nb-card accent="info" status="primary">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <nb-card status="primary">
       <nb-card-header>
-        <h2 mat-dialog-title *ngIf="isUpdateMode">Modifier son compte</h2>
-        <h2 mat-dialog-title *ngIf="!isUpdateMode">Créer un compte</h2>
+        <div class="text-center">
+          <h2 mat-dialog-title *ngIf="isUpdateMode">Modifier son compte</h2>
+          <h2 mat-dialog-title *ngIf="!isUpdateMode">Créer un compte</h2>
+        </div>
+
       </nb-card-header>
       <nb-card-body>
         <mat-dialog-content>
