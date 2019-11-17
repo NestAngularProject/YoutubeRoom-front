@@ -1,39 +1,31 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-  <!-- Insert header here -->
-  </nb-layout-header>
-
-  <nb-layout-column>
-
-    <mat-toolbar color="primary" class="extend-toolbar">
       <span>
         <a mat-button [routerLink]="['/home']">
           <i class="material-icons">movie_filter</i>
           Le nom du site
         </a>
       </span>
-    
-      <span class="styleFlex"></span>
-    
-      <span>
+
+        <span class="styleFlex"></span>
+
+        <span>
         <a mat-button [routerLink]="['/profil']">
           <i class="material-icons">person_outline</i>
         </a>
       </span>
-    
-      <span>
+
+        <span>
         <a mat-button [routerLink]="['/login']">
           <i class="material-icons">power_settings_new</i>
         </a>
       </span>
-    </mat-toolbar>
-    
-    
-    <router-outlet></router-outlet>
-    
-  </nb-layout-column>
+  </nb-layout-header>
 
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
   <nb-layout-footer fixed>
   <!-- Insert footer here -->
   </nb-layout-footer>
