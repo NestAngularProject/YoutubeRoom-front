@@ -1,25 +1,41 @@
-<mat-toolbar color="primary" class="extend-toolbar">
-  <span>
-    <a mat-button [routerLink]="['/home']">
-      <i class="material-icons">movie_filter</i>
-      Le nom du site
-    </a>
-  </span>
+<nb-layout>
 
-  <span class="styleFlex"></span>
+  <nb-layout-header fixed>
+  <!-- Insert header here -->
+  </nb-layout-header>
 
-  <span>
-    <a mat-button [routerLink]="['/profil']">
-      <i class="material-icons">person_outline</i>
-    </a>
-  </span>
+  <nb-layout-column>
 
-  <span>
-    <a mat-button [routerLink]="['/login']">
-      <i class="material-icons">power_settings_new</i>
-    </a>
-  </span>
-</mat-toolbar>
+    <mat-toolbar color="primary" class="extend-toolbar">
+      <span>
+        <a mat-button [routerLink]="['/home']">
+          <i class="material-icons">movie_filter</i>
+          Le nom du site
+        </a>
+      </span>
+    
+      <span class="styleFlex"></span>
+    
+      <span>
+        <a mat-button [routerLink]="['/profil']">
+          <i class="material-icons">person_outline</i>
+        </a>
+      </span>
+    
+      <span>
+        <a mat-button [routerLink]="['/login']">
+          <i class="material-icons">power_settings_new</i>
+        </a>
+      </span>
+    </mat-toolbar>
+    
+    
+    <router-outlet></router-outlet>
+    
+  </nb-layout-column>
 
+  <nb-layout-footer fixed>
+  <!-- Insert footer here -->
+  </nb-layout-footer>
 
-<router-outlet></router-outlet>
+</nb-layout>
