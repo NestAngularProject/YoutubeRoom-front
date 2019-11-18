@@ -2,7 +2,23 @@
 @import '~@nebular/theme/styles/themes/dark';
 
 $nb-themes: nb-register-theme((
+
+  card-margin-bottom: 0,
+  list-item-divider-color: white,
+// list-item-divider-style:
+// list-item-divider-width:
+// list-item-padding:
+// list-item-text-color:
+// list-item-font-size:
+// list-item-font-weight:
+// list-item-line-height:
+
   header-background-color: red,
+  sidebar-text-color: red,
+  sidebar-scrollbar-color: red,
+  sidebar-menu-item-highlight-color:red, //pas utilisee
+  sidebar-scrollbar-background-color:white,
+  sidebar-width: 40%,
   card-background-color: white,
   layout-background-color: rgba(174, 174, 174, 0.76),
   footer-background-color: red,

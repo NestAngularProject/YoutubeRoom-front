@@ -6,21 +6,31 @@
     <div class="row">
       <div class="col-12">
 
+        <iframe style="pointer-events: none;" width="560" height="315" src="https://www.youtube.com/embed/nxkwg4gNMak?autoplay=1&start=20"
+                frameborder="0" allowfullscreen>
+        </iframe>
       </div>
     </div>
 
   </nb-layout-column>
   <nb-sidebar right tag="right">
-    <nb-card size="medium">
-      <nb-card-header fixed style="color:red">
+    <nb-card style="height:100%">
+      <nb-card-header fixed class="text-center sidebar-style">
         Liste de vidéos
       </nb-card-header>
-      <nb-list>
-        <nb-list-item *ngFor="let video of videos">
+      <nb-list class="scrollable">
+        <nb-list-item *ngFor="let video of videos" [ngClass]="{seen: video.seen, unseen: !video.seen}">
+          <img src="//img.youtube.com/vi/nxkwg4gNMak/1.jpg">
           {{ video.image }} {{ video.nom }}
         </nb-list-item>
       </nb-list>
+      <nb-card-footer class="sidebar-style">
+        <div class="row">
+          <div class="col-10 offset-1">
+            <button mat-raised-button type="button" class="fullWidth"> Ajouter une vidéo</button>
+          </div>
+        </div>
+      </nb-card-footer>
     </nb-card>
-    <button style="color:red"></button>
   </nb-sidebar>
 </nb-layout>

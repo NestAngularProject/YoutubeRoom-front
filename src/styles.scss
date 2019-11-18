@@ -20,6 +20,26 @@
   padding: 0;
 }
 
+.sidebar-style{
+  background-color: red;
+}
+
+.fullWidth {
+  width:100%;
+}
+
+.noMargin {
+  padding: 0px;
+}
+
+.seen {
+  background-color: #4d4d4d
+}
+
+.unseen {
+  background-color: #dfd4c5
+}
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;

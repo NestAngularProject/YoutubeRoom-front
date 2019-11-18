@@ -8,20 +8,20 @@ import {NbSidebarService} from '@nebular/theme';
 })
 export class RoomComponent implements OnInit {
 
-  videos: { nom: string, image: string }[] = [
-    { nom: 'premiere video', image: 'image'},
-    { nom: 'deuxieme video', image: 'image'},
-    { nom: 'troisieme video', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'},
-    { nom: 'une de plus', image: 'image'}
+  videos: { nom: string, image: string, seen: boolean }[] = [
+    { nom: 'premiere video', image: 'image', seen: true},
+    { nom: 'deuxieme video', image: 'image', seen: false},
+    { nom: 'troisieme video', image: 'image', seen: true},
+    { nom: 'une de plus', image: 'image', seen: true},
+    { nom: 'une de plus', image: 'image', seen: true},
+    { nom: 'une de plus', image: 'image', seen: false},
+    { nom: 'une de plus', image: 'image', seen: true},
+    { nom: 'une de plus', image: 'image', seen: false},
+    { nom: 'une de plus', image: 'image', seen: true},
+    { nom: 'une de plus', image: 'image', seen: true},
+    { nom: 'une de plus', image: 'image', seen: false},
+    { nom: 'une de plus', image: 'image', seen: false},
+    { nom: 'une de plus', image: 'image', seen: true}
   ];
   constructor(private sidebarService: NbSidebarService) { }
 
@@ -29,6 +29,6 @@ export class RoomComponent implements OnInit {
   }
 
   toggle() {
-    this.sidebarService.toggle(true, 'right');
+    this.sidebarService.toggle(false, 'right');
   }
 }
