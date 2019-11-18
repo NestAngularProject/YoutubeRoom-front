@@ -1,0 +1,37 @@
+<nb-layout>
+
+  <nb-layout-column>
+    <button nbButton status="success" (click)="toggle()">Toggle</button>
+
+    <div class="row">
+      <div class="col-12">
+
+        <iframe style="pointer-events: none;" width="560" height="315" src="https://www.youtube.com/embed/nxkwg4gNMak?autoplay=1&start=20"
+                frameborder="0" allowfullscreen allow="autoplay">
+        </iframe>
+        <button (click)="fetchTitre('nxkwg4gNMak')"> afficher un titre</button>
+      </div>
+    </div>
+
+  </nb-layout-column>
+  <nb-sidebar right tag="right">
+    <nb-card style="height:100%">
+      <nb-card-header fixed class="text-center sidebar-style">
+        Liste de vidéos
+      </nb-card-header>
+      <nb-list class="scrollable">
+        <nb-list-item *ngFor="let video of videos" [ngClass]="{seen: video.seen, unseen: !video.seen}">
+          <img src="//img.youtube.com/vi/{{ video.code }}/1.jpg">
+          <p> ICI C LA TITR</p>
+        </nb-list-item>
+      </nb-list>
+      <nb-card-footer class="sidebar-style">
+        <div class="row">
+          <div class="col-10 offset-1">
+            <button mat-raised-button type="button" class="fullWidth"> Ajouter une vidéo</button>
+          </div>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </nb-sidebar>
+</nb-layout>

@@ -1,56 +1,70 @@
-<h2 mat-dialog-title *ngIf="isUpdateMode">Modifier son compte</h2>
-<h2 mat-dialog-title *ngIf="!isUpdateMode">Créer un compte</h2>
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <nb-card status="primary">
+      <nb-card-header>
+        <div class="text-center">
+          <h2 mat-dialog-title *ngIf="isUpdateMode">Modifier son compte</h2>
+          <h2 mat-dialog-title *ngIf="!isUpdateMode">Créer un compte</h2>
+        </div>
 
-<mat-dialog-content>
-  <form novalidate [formGroup]="form">
+      </nb-card-header>
+      <nb-card-body>
+        <mat-dialog-content>
+          <form novalidate [formGroup]="form">
 
-    <p *ngIf="isUpdateMode">
-      <span style="width:100%">ID (disabled)</span><br/>
-      <span style="width:100%">{{model.id}}</span>
-    </p>
+            <p *ngIf="isUpdateMode">
+              <span style="width:100%">ID (disabled)</span><br/>
+              <span style="width:100%">{{model.username}}</span>
+            </p>
 
-    <table class="full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="full-width" [class.mgb15]="form.get('username').dirty && form.get('username').invalid">
-            <input matInput placeholder="Nom d'utilisateur" formControlName="username" minlength="2" required name="username" />
-            <mat-error *ngIf="form.get('username').dirty && form.get('username').hasError('required')">
-              Avoir un nom d'utilisateur est <strong>obligatoire</strong>
-            </mat-error>
-            <mat-error *ngIf="form.get('username').dirty && form.get('username').hasError('minlength')">
-              Le nom d'utilisateur doit faire au <strong>minimum 2 lettres</strong>
-            </mat-error>
-          </mat-form-field>
+            <table class="full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="full-width" [class.mgb15]="form.get('username').dirty && form.get('username').invalid">
+                    <input matInput placeholder="Nom d'utilisateur" formControlName="username" minlength="2" required name="username" />
+                    <mat-error *ngIf="form.get('username').dirty && form.get('username').hasError('required')">
+                      Avoir un nom d'utilisateur est <strong>obligatoire</strong>
+                    </mat-error>
+                    <mat-error *ngIf="form.get('username').dirty && form.get('username').hasError('minlength')">
+                      Le nom d'utilisateur doit faire au <strong>minimum 2 lettres</strong>
+                    </mat-error>
+                  </mat-form-field>
 
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Mot de passe" formControlName="password" minlength="8" required name="password" />
-            <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('required')">
-              Avoir un mot de passe est <strong>obligatoire</strong>
-            </mat-error>
-            <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('minlength')">
-              Un mot de passe de faire au minimum <strong>8 caractères</strong>
-            </mat-error>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
+                  <mat-form-field class="full-width">
+                    <input matInput placeholder="Mot de passe" formControlName="password" minlength="8" required name="password" />
+                    <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('required')">
+                      Avoir un mot de passe est <strong>obligatoire</strong>
+                    </mat-error>
+                    <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('minlength')">
+                      Un mot de passe de faire au minimum <strong>8 caractères</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
 
-    <p>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Email" formControlName="mail" required name="mail" />
-        <mat-error *ngIf="form.get('mail').dirty && form.get('mail').hasError('required')">
-          Avoir un mail est <strong>obligatoire</strong>
-        </mat-error>
-        <mat-error *ngIf="form.get('mail').dirty && !form.get('mail').hasError('required') && form.get('mail').hasError('emailValidator')">
-          Le mail est  <strong>invalide</strong> (ex: nom.prenom@gmail.com)
-        </mat-error>
-      </mat-form-field>
-    </p>
+            <p>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Email" formControlName="mail" required name="mail" />
+                <mat-error *ngIf="form.get('mail').dirty && form.get('mail').hasError('required')">
+                  Avoir un mail est <strong>obligatoire</strong>
+                </mat-error>
+                <mat-error *ngIf="form.get('mail').dirty && !form.get('mail').hasError('required') && form.get('mail').hasError('emailValidator')">
+                  Le mail est  <strong>invalide</strong> (ex: nom.prenom@gmail.com)
+                </mat-error>
+              </mat-form-field>
+            </p>
 
-  </form>
-</mat-dialog-content>
+          </form>
+        </mat-dialog-content>
 
-<mat-dialog-actions align="end">
-  <button mat-button type="button" [routerLink]="['/home']">Cancel</button>
-  <button mat-button color="primary" type="submit" (click)="submit(form.value)" [disabled]="form.invalid">Save</button>
-</mat-dialog-actions>
+        <mat-dialog-actions align="end">
+          <button mat-button type="button" [routerLink]="['/home']">Cancel</button>
+          <button mat-button color="primary" type="submit" (click)="submit(form.value)" [disabled]="form.invalid">Save</button>
+        </mat-dialog-actions>
+      </nb-card-body>
+    </nb-card>
+
+  </div>
+</div>

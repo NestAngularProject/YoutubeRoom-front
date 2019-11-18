@@ -118,7 +118,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cdk@~8.2.3":
+"@angular/cdk@^8.0.0":
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-8.2.3.tgz#16b96ffa935cbf5a646757ecaf2b19c434678f72"
   integrity sha512-ZwO5Sn720RA2YvBqud0JAHkZXjmjxM0yNzCO8RVtRE9i8Gl26Wk0j0nQeJkVm4zwv2QO8MwbKUKGTMt8evsokA==
@@ -870,6 +870,23 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@nebular/bootstrap@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@nebular/bootstrap/-/bootstrap-4.5.0.tgz#625baa1bbe5923ba943e58d17566d327b2c7db9d"
+  integrity sha512-7iNh7OmcBfNdCRT45oe9MqtD/k0KUXL/UfQOqKy4eVIZUlsZj9FsaX3TBNNCKstq5oiGOKdGPnhmO+Zw4IalYA==
+
+"@nebular/eva-icons@4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-4.5.0.tgz#665fbfaffe8eea904239bc1d6e96333b5133c806"
+  integrity sha512-EhhmRjtkCL5uHGLL4PDePxy9gTm7OV7jZW3aSGd4ocxedI+TNwmQCqKEDoKK18rLFeIjPofIjHIAgPzk1Ra0Ag==
+
+"@nebular/theme@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-4.5.0.tgz#443c8f467b6008d30b934473791c50797bb6d311"
+  integrity sha512-qhZyDdHeo8uzuGnDOZ2kH0rxbb2hYEPewI+svGaJyHHPHHjJROHJB2EpBRKs2qBoY4tQeuOjEyn1q/GI34y6Sw==
+  dependencies:
+    intersection-observer "0.5.0"
+
 "@ngtools/webpack@8.3.19":
   version "8.3.19"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.3.19.tgz#9ed3123a9c3d79c49f73fd9a30cbe283ddde9d47"
@@ -881,7 +898,7 @@
     tree-kill "1.2.1"
     webpack-sources "1.4.3"
 
-"@schematics/angular@8.3.19":
+"@schematics/angular@8.3.19", "@schematics/angular@~8.3.6":
   version "8.3.19"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-8.3.19.tgz#0584ecb2e59bb5b1cdade9bf788bb7b483c066bc"
   integrity sha512-fwhvK+IzNxfznh5yQAbkkmyrdydoOQFoBvMWNsi4pneZRu0kKrnQim5FLjx2mJQArfxvJUgCMiZZ1Ze0TzVK+g==
@@ -1696,6 +1713,11 @@ bonjour@^3.5.0:
     dns-txt "^2.0.2"
     multicast-dns "^6.0.1"
     multicast-dns-service-types "^1.1.0"
+
+bootstrap@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
+  integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -3010,6 +3032,11 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
+eva-icons@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/eva-icons/-/eva-icons-1.1.2.tgz#a0d4d445ecd52a5dc0d55617211c5bc8f8009020"
+  integrity sha512-R5iD6nYcQS/qQOfC1ooP1hs8Xg+VKYfO95SXDzVWFUwYdxXrJYc7+ZnbE7tsl1amFjbRMm+c/vnH4NVaB2zrUQ==
+
 eventemitter3@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.0.tgz#d65176163887ee59f386d64c82610b696a4a74eb"
@@ -3941,6 +3968,11 @@ internal-ip@^4.3.0:
   dependencies:
     default-gateway "^4.2.0"
     ipaddr.js "^1.9.0"
+
+intersection-observer@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.5.0.tgz#9fe8bee3953c755b1485c38efd9633d535775ea6"
+  integrity sha512-8Zgt4ijlyvIrQVTA7MPb2W9+KhoetrAbxlh0RmTGxpx0+ZsAXvy7IsbNnZIrqZ6TddAdWeQj49x7Ph7Ir6KRkA==
 
 invariant@^2.2.2:
   version "2.2.4"

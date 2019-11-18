@@ -1,25 +1,39 @@
-<mat-toolbar color="primary" class="extend-toolbar">
-  <span>
-    <a mat-button [routerLink]="['/home']">
-      <i class="material-icons">movie_filter</i>
-      Le nom du site
-    </a>
-  </span>
+<nb-layout >
+  <nb-layout-header fixed >
+      <span>
+        <a mat-button [routerLink]="['/home']">
+          <i class="material-icons">movie_filter</i>
+          Le nom du site
+        </a>
+      </span>
 
-  <span class="styleFlex"></span>
+        <span class="flex"></span>
 
-  <span>
-    <a mat-button [routerLink]="['/profil']">
-      <i class="material-icons">person_outline</i>
-    </a>
-  </span>
+    <span>
+        <a mat-button [routerLink]="['/room']">
+          Room
+        </a>
+      </span>
 
-  <span>
-    <a mat-button [routerLink]="['/login']">
-      <i class="material-icons">power_settings_new</i>
-    </a>
-  </span>
-</mat-toolbar>
+        <span>
+        <a mat-button [routerLink]="['/profil']">
+          <i class="material-icons">person_outline</i>
+        </a>
+      </span>
 
+        <span>
+        <a mat-button [routerLink]="['/login']">
+          <i class="material-icons">power_settings_new</i>
+        </a>
+      </span>
+  </nb-layout-header>
 
-<router-outlet></router-outlet>
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <i class="material-icons">sentiment_very_satisfied</i>
+  </nb-layout-footer>
+
+</nb-layout>
