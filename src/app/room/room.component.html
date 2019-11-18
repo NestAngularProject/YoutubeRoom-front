@@ -9,6 +9,7 @@
         <iframe style="pointer-events: none;" width="560" height="315" src="https://www.youtube.com/embed/nxkwg4gNMak?autoplay=1&start=20"
                 frameborder="0" allowfullscreen allow="autoplay">
         </iframe>
+        <button (click)="fetchTitre('nxkwg4gNMak')"> afficher un titre</button>
       </div>
     </div>
 
@@ -21,7 +22,7 @@
       <nb-list class="scrollable">
         <nb-list-item *ngFor="let video of videos" [ngClass]="{seen: video.seen, unseen: !video.seen}">
           <img src="//img.youtube.com/vi/{{ video.code }}/1.jpg">
-          <button nbButton (click)="fetchTitre()">Toggle</button>
+          <p> ICI C LA TITR</p>
         </nb-list-item>
       </nb-list>
       <nb-card-footer class="sidebar-style">

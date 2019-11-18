@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NbSidebarService} from '@nebular/theme';
 import {ConfigService} from '../shared/services/config.service';
+import { Video } from '../shared/interfaces/video';
 
 
 @Component({
@@ -10,7 +11,6 @@ import {ConfigService} from '../shared/services/config.service';
   providers: [ConfigService]
 })
 export class RoomComponent implements OnInit {
-  allData: any = [];
   videos: { code: string, seen: boolean }[] = [
     { code: 'nxkwg4gNMak', seen: true},
     { code: 's3Q80mk7bxE', seen: false},
@@ -20,9 +20,8 @@ export class RoomComponent implements OnInit {
     { code: 's3Q80mk7bxE', seen: false},
     { code: 'nxkwg4gNMak', seen: true},
   ];
-  constructor(private sidebarService: NbSidebarService, private configService: ConfigService) {
-    this.allData = configService;
-  }
+  video: any;
+  constructor(private sidebarService: NbSidebarService, private configService: ConfigService) {  }
 
   ngOnInit() {
   }
@@ -31,16 +30,11 @@ export class RoomComponent implements OnInit {
     this.sidebarService.toggle(true, 'right');
   }
 
-  getALLData() {
-    this.allData.getData().subscribe(
-      data => { this.allData = data.data; },
-      err => console.error(err),
-      () => console.log('done loading data')
-    );
-  }
-
-  fetchTitre() {
-    this.getALLData();
-    console.log(this.allData);
+  fetchTitre(code: string): string {
+    this.configService.getData(code).subscribe(
+      (data: Video) => this.video = {
+        items: data
+      });
+    return (this.video.items.items[0].snippet.title);
   }
 }
