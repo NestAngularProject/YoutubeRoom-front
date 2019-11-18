@@ -19,8 +19,9 @@ import {
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { FormComponent } from './shared/form/form.component';
 import { UserComponent } from './user/user.component';
-import {NbThemeModule, NbLayoutModule, NbCardModule} from '@nebular/theme';
+import {NbThemeModule, NbLayoutModule, NbCardModule, NbSidebarModule, NbMenuModule, NbListModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { RoomComponent } from './room/room.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     HomeComponent,
     DialogComponent,
     FormComponent,
-    UserComponent
+    UserComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,
@@ -45,10 +47,13 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
     NbThemeModule.forRoot({name: 'custom-theme'}),
     NbLayoutModule,
     NbEvaIconsModule,
     NbCardModule,
+    NbListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,26 @@
+<nb-layout>
+
+  <nb-layout-column>
+    <button nbButton status="success" (click)="toggle()">Toggle</button>
+
+    <div class="row">
+      <div class="col-12">
+
+      </div>
+    </div>
+
+  </nb-layout-column>
+  <nb-sidebar right tag="right">
+    <nb-card size="medium">
+      <nb-card-header fixed style="color:red">
+        Liste de vidéos
+      </nb-card-header>
+      <nb-list>
+        <nb-list-item *ngFor="let video of videos">
+          {{ video.image }} {{ video.nom }}
+        </nb-list-item>
+      </nb-list>
+    </nb-card>
+    <button style="color:red"></button>
+  </nb-sidebar>
+</nb-layout>
