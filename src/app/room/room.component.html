@@ -21,7 +21,7 @@
       <nb-list class="scrollable">
         <nb-list-item *ngFor="let video of videos" [ngClass]="{seen: video.seen, unseen: !video.seen}">
           <img src="//img.youtube.com/vi/{{ video.code }}/1.jpg">
-
+          <button nbButton (click)="fetchTitre()">Toggle</button>
         </nb-list-item>
       </nb-list>
       <nb-card-footer class="sidebar-style">

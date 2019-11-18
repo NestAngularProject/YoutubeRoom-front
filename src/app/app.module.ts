@@ -22,6 +22,7 @@ import { UserComponent } from './user/user.component';
 import {NbThemeModule, NbLayoutModule, NbCardModule, NbSidebarModule, NbMenuModule, NbListModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { RoomComponent } from './room/room.component';
+import { VideoComponent } from './video/video.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RoomComponent } from './room/room.component';
     DialogComponent,
     FormComponent,
     UserComponent,
-    RoomComponent
+    RoomComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
