@@ -7,7 +7,7 @@
       <div class="col-12">
 
         <iframe style="pointer-events: none;" width="560" height="315" src="https://www.youtube.com/embed/nxkwg4gNMak?autoplay=1&start=20"
-                frameborder="0" allowfullscreen>
+                frameborder="0" allowfullscreen allow="autoplay">
         </iframe>
       </div>
     </div>
@@ -20,8 +20,8 @@
       </nb-card-header>
       <nb-list class="scrollable">
         <nb-list-item *ngFor="let video of videos" [ngClass]="{seen: video.seen, unseen: !video.seen}">
-          <img src="//img.youtube.com/vi/nxkwg4gNMak/1.jpg">
-          {{ video.image }} {{ video.nom }}
+          <img src="//img.youtube.com/vi/{{ video.code }}/1.jpg">
+
         </nb-list-item>
       </nb-list>
       <nb-card-footer class="sidebar-style">

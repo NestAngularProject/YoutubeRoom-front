@@ -8,20 +8,14 @@ import {NbSidebarService} from '@nebular/theme';
 })
 export class RoomComponent implements OnInit {
 
-  videos: { nom: string, image: string, seen: boolean }[] = [
-    { nom: 'premiere video', image: 'image', seen: true},
-    { nom: 'deuxieme video', image: 'image', seen: false},
-    { nom: 'troisieme video', image: 'image', seen: true},
-    { nom: 'une de plus', image: 'image', seen: true},
-    { nom: 'une de plus', image: 'image', seen: true},
-    { nom: 'une de plus', image: 'image', seen: false},
-    { nom: 'une de plus', image: 'image', seen: true},
-    { nom: 'une de plus', image: 'image', seen: false},
-    { nom: 'une de plus', image: 'image', seen: true},
-    { nom: 'une de plus', image: 'image', seen: true},
-    { nom: 'une de plus', image: 'image', seen: false},
-    { nom: 'une de plus', image: 'image', seen: false},
-    { nom: 'une de plus', image: 'image', seen: true}
+  videos: { code: string, seen: boolean }[] = [
+    { code: 'nxkwg4gNMak', seen: true},
+    { code: 's3Q80mk7bxE', seen: false},
+    { code: 'nxkwg4gNMak', seen: true},
+    { code: 's3Q80mk7bxE', seen: true},
+    { code: 'nxkwg4gNMak', seen: false},
+    { code: 's3Q80mk7bxE', seen: false},
+    { code: 'nxkwg4gNMak', seen: true},
   ];
   constructor(private sidebarService: NbSidebarService) { }
 
@@ -29,6 +23,6 @@ export class RoomComponent implements OnInit {
   }
 
   toggle() {
-    this.sidebarService.toggle(false, 'right');
+    this.sidebarService.toggle(true, 'right');
   }
 }
