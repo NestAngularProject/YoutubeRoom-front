@@ -95,9 +95,6 @@ export class LoginComponent implements OnInit, OnChanges {
       password: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(8)
       ])),
-      mail: new FormControl('', Validators.compose([
-        Validators.required, CustomValidators.emailValidator
-      ])),
       room: new FormControl(''),
     });
   }
