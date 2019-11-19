@@ -19,7 +19,7 @@ import {
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { FormComponent } from './shared/form/form.component';
 import { UserComponent } from './user/user.component';
-import {NbThemeModule, NbLayoutModule, NbCardModule, NbSidebarModule, NbMenuModule, NbListModule} from '@nebular/theme';
+import {NbThemeModule, NbLayoutModule, NbCardModule, NbSidebarModule, NbMenuModule, NbListModule, NbToggleModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { RoomComponent } from './room/room.component';
 import { VideoComponent } from './video/video.component';
@@ -56,6 +56,7 @@ import { VideoComponent } from './video/video.component';
     NbEvaIconsModule,
     NbCardModule,
     NbListModule,
+    NbToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

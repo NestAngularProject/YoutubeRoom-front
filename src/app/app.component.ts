@@ -8,6 +8,7 @@ import { NbThemeService } from '@nebular/theme';
 })
 export class AppComponent {
   title = 'YoutubeRoom-front';
+  theme = 'custom-theme';
 
   constructor(private themeService: NbThemeService) {
     this.themeService.onThemeChange()
@@ -17,6 +18,7 @@ export class AppComponent {
   }
 
   toggleTheme() {
-    this.themeService.changeTheme('custom-theme-dark');
+    this.theme = this.theme === 'custom-theme' ? 'custom-theme-dark' : 'custom-theme';
+    this.themeService.changeTheme(this.theme);
   }
 }

@@ -4,7 +4,7 @@ import { User } from '../interfaces/user';
 import { CustomValidators } from './custom-validators';
 
 @Component({
-  selector: 'nwt-form',
+  selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
