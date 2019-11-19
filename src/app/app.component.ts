@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NbThemeService } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'YoutubeRoom-front';
+
+  constructor(private themeService: NbThemeService) {
+    this.themeService.onThemeChange()
+      .subscribe((theme: any) => {
+        console.log(`Theme changed to ${theme.name}`);
+      });
+  }
+
+  toggleTheme() {
+    this.themeService.changeTheme('custom-theme-dark');
+  }
 }
