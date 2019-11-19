@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { User } from '../interfaces/user';
 import { CustomValidators } from '../form/custom-validators';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,13 @@ export class LoginComponent implements OnInit, OnChanges {
   private readonly _submit$: EventEmitter<User>;
   // private property to store form value
   private readonly _form: FormGroup;
+  // private to store the user
+  private _user: User
 
   /**
    * Component constructor
    */
-  constructor( private _userService: UserService ) {
+  constructor(private _router: Router, private _userService: UserService ) {
     this._submit$ = new EventEmitter<User>();
     this._form = this._buildForm();
   }
@@ -80,7 +83,16 @@ export class LoginComponent implements OnInit, OnChanges {
    * Function to emit event to submit form and user
    */
   submit(user: User) {
-    this._userService.fetchLogin(user.username, user.password);
+    this._userService.fetchLogin(user.username, user.password).subscribe(res => {this._user = res,
+      localStorage.setItem('session', this._user.username),
+    this._router.navigate(['/home']); });
+  }
+
+  /**
+   * Function to check if a session is on
+   */
+  isSessionOn(): boolean {
+    return localStorage.getItem('session') !== null;
   }
 
   /**

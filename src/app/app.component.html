@@ -3,10 +3,10 @@
       <span>
         <a mat-button [routerLink]="['/home']">
           <i class="material-icons">movie_filter</i>
-          Le nom du site
+          YoutubeRoom
         </a>
       </span>
-
+      <span></span>
         <span class="flex"></span>
 
     <span>
@@ -26,13 +26,13 @@ nights_stay
           <i class="material-icons">person_outline</i>
         </a>
       </span>
-    <span>
+    <span *ngIf="!isSessionOn()">
         <a mat-button [routerLink]="['/login']">
           <i class="material-icons">add_circle_outline</i>
         </a>
       </span>
-        <span>
-        <a mat-button [routerLink]="['/login']">
+        <span *ngIf="isSessionOn()">
+        <a mat-button (click)="disconnect()"[routerLink]="['/home']">
           <i class="material-icons">power_settings_new</i>
         </a>
       </span>

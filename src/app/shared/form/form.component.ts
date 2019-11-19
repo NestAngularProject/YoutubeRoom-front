@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { User } from '../interfaces/user';
 import { CustomValidators } from './custom-validators';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -24,7 +25,7 @@ export class FormComponent implements OnInit, OnChanges {
   /**
    * Component constructor
    */
-  constructor( private _userService: UserService ) {
+  constructor(private _router: Router, private _userService: UserService ) {
     this._submit$ = new EventEmitter<User>();
     this._cancel$ = new EventEmitter<void>();
     this._form = this._buildForm();
@@ -110,7 +111,7 @@ export class FormComponent implements OnInit, OnChanges {
    */
   submit(user: User) {
     this._userService.create(user);
-    // this._submit$.emit(user);
+    this._router.navigate(['/login']);
   }
 
   /**

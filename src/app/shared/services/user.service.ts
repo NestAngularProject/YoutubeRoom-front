@@ -79,7 +79,7 @@ export class UserService {
    * Function to create a new user
    */
   create(user: User) {
-    this._http.post(this._backendURL.allUsers, user, this._options().subscribe());
+    this._http.post(this._backendURL.allUsers, user, this._options()).subscribe();
   }
 
   /**
@@ -103,6 +103,6 @@ export class UserService {
    * Function to return request options
    */
   private _options(headerList: object = {}): any {
-    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)), observe: 'response' };
+    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList))};
   }
 }

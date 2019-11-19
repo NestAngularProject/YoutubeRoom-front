@@ -17,6 +17,20 @@ export class AppComponent {
       });
   }
 
+  /**
+   * Function to check if a session is on
+   */
+  isSessionOn(): boolean {
+    return localStorage.getItem('session') !== null;
+  }
+
+  /**
+   * Function to disconnect a user
+   */
+  disconnect() {
+    localStorage.clear();
+  }
+
   toggleTheme() {
     this.theme = this.theme === 'custom-theme' ? 'custom-theme-dark' : 'custom-theme';
     this.themeService.changeTheme(this.theme);
