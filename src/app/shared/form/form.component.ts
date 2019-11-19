@@ -111,7 +111,6 @@ export class FormComponent implements OnInit, OnChanges {
    */
   submit(user: User) {
     this._userService.create(user);
-    this._router.navigate(['/login']);
   }
 
   /**
