@@ -5,8 +5,14 @@ export const environment = {
     host: '0.0.0.0',
     port: '3000',
     endpoints: {
-      allUser: '/api/users',
-      oneUser: '/api/users/:username'
+      allUsers: '/users',
+      oneUser: '/users/:username',
+      pwdUser: '/users/:username/:password',
+      allVideos: '/videos',
+      oneVideo: '/videos/:id',
+      allRooms: '/rooms',
+      oneRoom:  '/rooms/:name',
+      pwdRoom:  '/rooms/:name/:password'
     }
   }
 };

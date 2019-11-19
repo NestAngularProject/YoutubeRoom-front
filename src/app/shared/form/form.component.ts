@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angula
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { User } from '../interfaces/user';
 import { CustomValidators } from './custom-validators';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-form',
@@ -23,7 +24,7 @@ export class FormComponent implements OnInit, OnChanges {
   /**
    * Component constructor
    */
-  constructor() {
+  constructor( private _userService: UserService ) {
     this._submit$ = new EventEmitter<User>();
     this._cancel$ = new EventEmitter<void>();
     this._form = this._buildForm();
@@ -69,16 +70,14 @@ export class FormComponent implements OnInit, OnChanges {
   /**
    * Returns private property _submit$
    */
-  @Output('submit')
-  get submit$(): EventEmitter<User> {
+  @Output('submit') get submit$(): EventEmitter<User> {
     return this._submit$;
   }
 
   /**
    * OnInit implementation
    */
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   /**
    * Function to handle component update
@@ -107,10 +106,11 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Function to emit event to submit form and person
+   * Function to emit event to submit form and user
    */
   submit(user: User) {
-    this._submit$.emit(user);
+    this._userService.create(user);
+    // this._submit$.emit(user);
   }
 
   /**
@@ -118,7 +118,6 @@ export class FormComponent implements OnInit, OnChanges {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-      id: new FormControl('0'),
       username: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ])),

@@ -56,15 +56,14 @@ export class UserService {
    * Function to return one user using it's username
    */
   fetchOne(username: string): Observable<User> {
-    console.log(this._http.get<User>(this._backendURL.oneUser.replace(':username', username)));
     return this._http.get<User>(this._backendURL.oneUser.replace(':username', username));
   }
 
   /**
    * Function to create a new user
    */
-  create(user: User): Observable<any> {
-    return this._http.post<User>(this._backendURL.allUsers, user, this._options());
+  create(user: User) {
+    this._http.post('http://127.0.0.1:3000/users', user, this._options()).subscribe();
   }
 
   /**
