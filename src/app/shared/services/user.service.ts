@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import {catchError, defaultIfEmpty, filter, map} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserService {
   // private property to store default user
   private readonly _defaultUser: User;
 
-  constructor(private _http: HttpClient) {
+  constructor(private _router: Router, private _http: HttpClient) {
     this._defaultUser = {
       username: 'username',
       password: 'password',
@@ -79,7 +80,13 @@ export class UserService {
    * Function to create a new user
    */
   create(user: User) {
-    this._http.post(this._backendURL.allUsers, user, this._options()).subscribe();
+    this._http.post(this._backendURL.allUsers, user, { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' })),
+      observe: 'response'})
+      .subscribe(response => {
+        if (response.status === 201) {
+          this._router.navigate(['/login']);
+        }
+      });
   }
 
   /**
