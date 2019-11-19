@@ -43,8 +43,6 @@
                 </td>
               </tr>
             </table>
-
-            <p>
               <mat-form-field class="full-width">
                 <input matInput placeholder="Email" formControlName="mail" required name="mail" />
                 <mat-error *ngIf="form.get('mail').dirty && form.get('mail').hasError('required')">
@@ -54,8 +52,6 @@
                   Le mail est  <strong>invalide</strong> (ex: nom.prenom@gmail.com)
                 </mat-error>
               </mat-form-field>
-            </p>
-
           </form>
         </mat-dialog-content>
 

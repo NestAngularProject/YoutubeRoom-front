@@ -23,6 +23,7 @@ import {NbThemeModule, NbLayoutModule, NbCardModule, NbSidebarModule, NbMenuModu
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { RoomComponent } from './room/room.component';
 import { VideoComponent } from './video/video.component';
+import { LoginComponent } from './shared/login/login.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { VideoComponent } from './video/video.component';
     FormComponent,
     UserComponent,
     RoomComponent,
-    VideoComponent
+    VideoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
