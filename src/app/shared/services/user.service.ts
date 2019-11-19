@@ -56,6 +56,7 @@ export class UserService {
    * Function to return one user using it's username
    */
   fetchOne(username: string): Observable<User> {
+    console.log(this._http.get<User>(this._backendURL.oneUser.replace(':username', username)));
     return this._http.get<User>(this._backendURL.oneUser.replace(':username', username));
   }
 
