@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
-import { defaultIfEmpty, filter, map } from 'rxjs/operators';
+import {catchError, defaultIfEmpty, filter, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +53,13 @@ export class UserService {
   }
 
   /**
+   * Function to return the list of users inside the room in parameter
+   */
+  fetchFromRoom(room: string): Observable<User[]> {
+    return this._http.get<User[]>(this._backendURL.roomUsers.replace(':room', room));
+  }
+
+  /**
    * Function to return one user using it's username
    */
   fetchOne(username: string): Observable<User> {
@@ -60,10 +67,19 @@ export class UserService {
   }
 
   /**
+   * Function to return one user using it's username and his password
+   */
+  fetchLogin(username: string, password: string): Observable<User> {
+    return this._http.get<User>(this._backendURL.pwdUser
+      .replace(':username', username)
+      .replace(':password', password));
+  }
+
+  /**
    * Function to create a new user
    */
   create(user: User) {
-    this._http.post('http://127.0.0.1:3000/users', user, this._options()).subscribe();
+    this._http.post(this._backendURL.allUsers, user, this._options().subscribe());
   }
 
   /**
@@ -87,6 +103,6 @@ export class UserService {
    * Function to return request options
    */
   private _options(headerList: object = {}): any {
-    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };
+    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)), observe: 'response' };
   }
 }

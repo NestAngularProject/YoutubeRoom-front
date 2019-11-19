@@ -80,8 +80,7 @@ export class LoginComponent implements OnInit, OnChanges {
    * Function to emit event to submit form and user
    */
   submit(user: User) {
-    this._userService.create(user);
-    // this._submit$.emit(user);
+    this._userService.fetchLogin(user.username, user.password);
   }
 
   /**

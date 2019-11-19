@@ -12,8 +12,10 @@ export const environment = {
       allUsers: '/users',
       oneUser: '/users/:username',
       pwdUser: '/users/:username/:password',
+      roomUsers: '/users/room/:room',
       allVideos: '/videos',
       oneVideo: '/videos/:id',
+      roomVideos: '/videos/room/:room',
       allRooms: '/rooms',
       oneRoom:  '/rooms/:name',
       pwdRoom:  '/rooms/:name/:password'
