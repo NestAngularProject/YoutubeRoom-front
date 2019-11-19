@@ -1,9 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NbSidebarService} from '@nebular/theme';
 import {ConfigService} from '../shared/services/config.service';
+import {UserService} from '../shared/services/user.service';
 import { Video } from '../shared/interfaces/video';
-import {first, sample, take, takeUntil, timeInterval} from 'rxjs/operators';
+import {defaultIfEmpty, filter, first, sample, take, takeUntil, timeInterval} from 'rxjs/operators';
 import {Subject, timer} from 'rxjs';
+import {User} from '../shared/interfaces/user';
+import {Videobdd} from "../shared/interfaces/videobdd";
 
 
 @Component({
@@ -14,19 +17,13 @@ import {Subject, timer} from 'rxjs';
 })
 export class RoomComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: any = new Subject();
-  videos: { code: string, seen: boolean }[] = [
-    { code: 'nxkwg4gNMak', seen: true},
-    { code: 's3Q80mk7bxE', seen: false},
-    { code: 'nxkwg4gNMak', seen: true},
-    { code: 's3Q80mk7bxE', seen: true},
-    { code: 'nxkwg4gNMak', seen: false},
-    { code: 's3Q80mk7bxE', seen: false},
-    { code: 'nxkwg4gNMak', seen: true},
-  ];
+  videos: Videobdd[];
   video: any;
-  constructor(private sidebarService: NbSidebarService, private configService: ConfigService) {  }
+  private _user;
+  constructor(private sidebarService: NbSidebarService, private configService: ConfigService, private userService: UserService) {  }
 
   ngOnInit() {
+    this.fetchVideos();
   }
 
   toggle() {
@@ -43,6 +40,13 @@ export class RoomComponent implements OnInit, OnDestroy {
       }).unsubscribe();
     return code;
   }
+
+  fetchVideos() {
+    this.userService.fetchOne(localStorage.getItem('session')).subscribe(res => { this._user = res; });
+    this.configService.getVideos(this._user.room).subscribe(
+      (data: Videobdd[]) => this.videos = data);
+  }
+
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();

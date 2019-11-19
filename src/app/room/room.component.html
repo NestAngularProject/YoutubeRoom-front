@@ -11,9 +11,6 @@
         </iframe>
         <button (click)="fetchTitre('nxkwg4gNMak')"> afficher un titre</button>
         <button (click)="fetchTitre('ho7796-au8U')"> afficher un titre</button>
-        <p>
-          {{ fetchTitre('nxkwg4gNMak') }}
-        </p>
       </div>
     </div>
 
@@ -25,8 +22,8 @@
       </nb-card-header>
       <nb-list class="scrollable">
         <nb-list-item *ngFor="let video of videos" [ngClass]="{seen: video.seen, unseen: !video.seen}">
-          <img src="//img.youtube.com/vi/{{ video.code }}/1.jpg">
-          <p> ICI C LA TITR</p>
+          <img src="//img.youtube.com/vi/nxkwg4gNMak/1.jpg">
+          <p> {{ video.link }}</p>
         </nb-list-item>
       </nb-list>
       <nb-card-footer class="sidebar-style">
