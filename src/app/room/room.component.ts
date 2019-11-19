@@ -32,9 +32,12 @@ export class RoomComponent implements OnInit {
 
   fetchTitre(code: string): string {
     this.configService.getData(code).subscribe(
-      (data: Video) => this.video = {
-        items: data
+      (data: Video) => {
+        this.video = {
+          items: data
+        }, console.log(this.video.items.items[0].snippet.title),
+          code = this.video.items.items[0].snippet.title;
       });
-    return (this.video.items.items[0].snippet.title);
+    return code;
   }
 }

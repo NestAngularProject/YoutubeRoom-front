@@ -16,9 +16,10 @@ $nb-themes: nb-register-theme((
   card-text-color: black,
   header-background-color: rgba(0, 0, 0, 0.86),
   sidebar-text-color: black,
+  sidebar-background-color: white,
   sidebar-scrollbar-color: rgba(0, 0, 0, 0.86),
   sidebar-menu-item-highlight-color:black, //pas utilisee
-  sidebar-scrollbar-background-color:white,
+  sidebar-scrollbar-background-color:rgba(0, 0, 0, 0.86),
   sidebar-width: 40%,
   card-background-color: white,
   layout-background-color: rgba(174, 174, 174, 0.76),
@@ -112,6 +113,7 @@ $nb-themes: nb-register-theme((
   header-background-color: red,
   sidebar-text-color: red,
   sidebar-scrollbar-color: red,
+  sidebar-background-color: red,
   sidebar-menu-item-highlight-color:red, //pas utilisee
   sidebar-scrollbar-background-color:white,
   sidebar-width: 40%,
