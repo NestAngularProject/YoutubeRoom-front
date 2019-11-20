@@ -10,6 +10,7 @@ import {Videobdd} from '../shared/interfaces/videobdd';
 import {RoomService} from '../shared/services/room.service';
 import {Room} from '../shared/interfaces/room';
 import { DomSanitizer } from '@angular/platform-browser';
+import {FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -26,6 +27,8 @@ export class RoomComponent implements OnInit, OnDestroy {
   video: any;
   timestamp = 0;
   private _user;
+  private readonly _form: FormGroup;
+
   constructor(private sidebarService: NbSidebarService, public sanitizer: DomSanitizer,
               private configService: ConfigService, private userService: UserService, private roomService: RoomService) {  }
 

@@ -16,7 +16,7 @@
     <span>
     <i class="material-icons">nights_stay</i>
       </span>
-    <span>
+    <span *ngIf="isSessionOn()">
         <a mat-button [routerLink]="['/room']">
           Room
         </a>
