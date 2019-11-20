@@ -17,6 +17,7 @@ export class ConfigService {
   private readonly _defaultRoom: Videobdd[];
   constructor(private _http: HttpClient) {
     this._defaultRoom = [{
+      id: 'hk4645gref4564e8',
       link: 'https://www.youtube.com/watch?v=hTWKbfoikeg',
       timestamp: 70,
       seen: false,
