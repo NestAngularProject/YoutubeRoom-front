@@ -4,6 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {FormComponent} from './shared/form/form.component';
 import {RoomComponent} from './room/room.component';
 import {LoginComponent} from './shared/login/login.component';
+import {ProfilComponent} from './shared/profil/profil.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'form', component: FormComponent },
-  { path: 'room', component: RoomComponent }
+  { path: 'room', component: RoomComponent },
+  { path: 'profil', component: ProfilComponent}
 ];
 
 @NgModule({

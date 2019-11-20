@@ -79,21 +79,15 @@ export class UserService {
   /**
    * Function to create a new user
    */
-  create(user: User) {
-    this._http.post(this._backendURL.allUsers, user, { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' })),
-      observe: 'response'})
-      .subscribe(response => {
-        if (response.status === 201) {
-          this._router.navigate(['/login']);
-        }
-      });
+  create(user: User): Observable<any> {
+    return this._http.post(this._backendURL.allUsers, user, this._options());
   }
 
   /**
    * Function to update one user
    */
-  update(user: User): Observable<any> {
-    return this._http.put<User>(this._backendURL.oneUser.replace(':username', user.username), user, this._options());
+  update(user: User, username: string): Observable<any> {
+    return this._http.put<User>(this._backendURL.oneUser.replace(':username', username), user, this._options());
   }
 
   /**
@@ -110,6 +104,6 @@ export class UserService {
    * Function to return request options
    */
   private _options(headerList: object = {}): any {
-    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList))};
+    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)), observe: 'response'};
   }
 }

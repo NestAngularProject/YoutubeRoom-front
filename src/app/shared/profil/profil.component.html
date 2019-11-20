@@ -5,13 +5,14 @@
     <nb-card status="primary">
       <nb-card-header>
         <div class="text-center">
-          <h2 mat-dialog-title>Connexion</h2>
+          <h2 mat-dialog-title>Modifier son compte</h2>
         </div>
 
       </nb-card-header>
       <nb-card-body>
         <mat-dialog-content>
           <form novalidate [formGroup]="form">
+
             <table class="full-width" cellspacing="0">
               <tr>
                 <td>
@@ -37,21 +38,25 @@
                 </td>
               </tr>
             </table>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" formControlName="mail" required name="mail" />
+              <mat-error *ngIf="form.get('mail').dirty && form.get('mail').hasError('required')">
+                Avoir un mail est <strong>obligatoire</strong>
+              </mat-error>
+              <mat-error *ngIf="form.get('mail').dirty && !form.get('mail').hasError('required') && form.get('mail').hasError('emailValidator')">
+                Le mail est  <strong>invalide</strong> (ex: nom.prenom@gmail.com)
+              </mat-error>
+            </mat-form-field>
           </form>
         </mat-dialog-content>
 
         <mat-dialog-actions align="end">
           <button mat-button type="button" [routerLink]="['/home']">Annuler</button>
-          <button mat-button color="primary" type="submit" (click)="submit(form.value)" [disabled]="form.invalid">Connexion</button>
+          <button mat-button color="primary" type="submit" (click)="submit(form.value)" [disabled]="form.invalid">Modifier mon compte</button>
+          <button mat-button color="primary" type="submit" (click)="delete()">Supprimer mon compte</button>
         </mat-dialog-actions>
       </nb-card-body>
     </nb-card>
-  </div>
-</div>
-<div class="row" style="height:10%">
-</div>
-<div class="row">
-  <div class="col-4 offset-4">
-    <button style="width:100%" mat-raised-button type="button" color="warn" [routerLink]="['/form']">Besoin d'un compte ?</button>
+
   </div>
 </div>

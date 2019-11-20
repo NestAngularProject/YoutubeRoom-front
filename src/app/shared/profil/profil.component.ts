@@ -1,18 +1,16 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {User} from '../interfaces/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { User } from '../interfaces/user';
-import { CustomValidators } from './custom-validators';
-import {UserService} from '../services/user.service';
 import {Router} from '@angular/router';
+import {UserService} from '../services/user.service';
+import {CustomValidators} from '../form/custom-validators';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-profil',
+  templateUrl: './profil.component.html',
+  styleUrls: ['./profil.component.css']
 })
-export class FormComponent implements OnInit, OnChanges {
-  // private property to store update mode flag
-  private _isUpdateMode: boolean;
+export class ProfilComponent implements OnInit {
   // private property to store model value
   private _model: User;
   // private property to store cancel$ value
@@ -21,6 +19,8 @@ export class FormComponent implements OnInit, OnChanges {
   private readonly _submit$: EventEmitter<User>;
   // private property to store form value
   private readonly _form: FormGroup;
+  // private property to store a user
+  private _user: User;
 
   /**
    * Component constructor
@@ -54,13 +54,6 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Returns private property _isUpdateMode
-   */
-  get isUpdateMode(): boolean {
-    return this._isUpdateMode;
-  }
-
-  /**
    * Returns private property _cancel$
    */
   @Output('cancel')
@@ -78,25 +71,9 @@ export class FormComponent implements OnInit, OnChanges {
   /**
    * OnInit implementation
    */
-  ngOnInit() { }
-
-  /**
-   * Function to handle component update
-   */
-  ngOnChanges(record) {
-    if (record.model && record.model.currentValue) {
-      this._model = record.model.currentValue;
-      this._isUpdateMode = true;
-      this._form.patchValue(this._model);
-    } else {
-      this._model = {
-        username: '',
-        mail: '',
-        password: '',
-        room: '',
-      };
-      this._isUpdateMode = false;
-    }
+  ngOnInit() {
+    this._userService.fetchOne(localStorage.getItem('session')).subscribe(res => {this._model = res,
+    this._form.patchValue(this._model); });
   }
 
   /**
@@ -110,11 +87,21 @@ export class FormComponent implements OnInit, OnChanges {
    * Function to emit event to submit form and user
    */
   submit(user: User) {
-    this._userService.create(user).subscribe(response => {
-      if (response.status === 201) {
-        this._router.navigate(['/login']);
-      }
-    });;
+    this._userService.update(user, localStorage.getItem('session')).subscribe(response => {
+          if (response.status === 200) {
+            localStorage.setItem('session', user.username)
+            this._router.navigate(['/home']);
+          }
+        });
+  }
+
+  /**
+   * Function to delete a user
+   */
+  delete() {
+    this._userService.delete(localStorage.getItem('session')).subscribe();
+    localStorage.clear();
+    this._router.navigate(['/home']);
   }
 
   /**
@@ -135,4 +122,3 @@ export class FormComponent implements OnInit, OnChanges {
     });
   }
 }
-

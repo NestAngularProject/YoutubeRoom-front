@@ -24,6 +24,10 @@ export class AppComponent {
     return localStorage.getItem('session') !== null;
   }
 
+  getSession(): string {
+    return 'Connecté en tant que ' + localStorage.getItem('session');
+  }
+
   /**
    * Function to disconnect a user
    */

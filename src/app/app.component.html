@@ -10,18 +10,19 @@
         <span class="flex"></span>
 
     <span>
-      <nb-toggle status="basic" (click)="toggleTheme()"><i class="material-icons">
-nights_stay
-</i></nb-toggle>
-    </span>
+      <nb-toggle status="basic" (click)="toggleTheme()"></nb-toggle>
 
+    </span>
+    <span>
+    <i class="material-icons">nights_stay</i>
+      </span>
     <span>
         <a mat-button [routerLink]="['/room']">
           Room
         </a>
       </span>
 
-        <span>
+        <span *ngIf="isSessionOn()">
         <a mat-button [routerLink]="['/profil']">
           <i class="material-icons">person_outline</i>
         </a>
@@ -43,7 +44,8 @@ nights_stay
   </nb-layout-column>
 
   <nb-layout-footer fixed>
-    <i class="material-icons">sentiment_very_satisfied</i>
+    <span *ngIf="isSessionOn()" [textContent]="getSession()"></span>
+    <span *ngIf="!isSessionOn()">Vous n'êtes pas connecté</span>
   </nb-layout-footer>
 
 </nb-layout>
