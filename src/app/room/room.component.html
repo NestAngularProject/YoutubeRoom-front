@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-12">
         <iframe style="pointer-events: none;" width="560" height="315"
-                src="{{sanitizer.bypassSecurityTrustResourceUrl(this.currentVideo())}}" frameborder="0"
+                [src]="youtubeSrc" frameborder="0"
                 allowfullscreen allow="autoplay"></iframe>
       </div>
     </div>
