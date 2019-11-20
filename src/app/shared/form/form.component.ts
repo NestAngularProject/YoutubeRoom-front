@@ -21,6 +21,8 @@ export class FormComponent implements OnInit, OnChanges {
   private readonly _submit$: EventEmitter<User>;
   // private property to store form value
   private readonly _form: FormGroup;
+  // private boolean to check errors
+  private _error: boolean;
 
   /**
    * Component constructor
@@ -112,9 +114,15 @@ export class FormComponent implements OnInit, OnChanges {
   submit(user: User) {
     this._userService.create(user).subscribe(response => {
       if (response.status === 201) {
+        this._error = false;
         this._router.navigate(['/login']);
       }
-    });;
+    }, err => this._error = true
+    );
+  }
+
+  getError(): boolean {
+    return this._error;
   }
 
   /**
