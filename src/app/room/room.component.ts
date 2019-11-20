@@ -20,10 +20,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class RoomComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: any = new Subject();
-  currentVideoId;
+  currentVideoId = 'dQw4w9WgXcQ';
   videos: Videobdd[];
+  youtubeSrc;
   video: any;
-  timestamp: number;
+  timestamp = 0;
   private _user;
   constructor(private sidebarService: NbSidebarService, public sanitizer: DomSanitizer,
               private configService: ConfigService, private userService: UserService, private roomService: RoomService) {  }
@@ -31,6 +32,7 @@ export class RoomComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.fetchCurrentVideoInfo();
     this.fetchVideos();
+    this.currentVideo();
   }
 
   toggle() {
@@ -66,9 +68,8 @@ export class RoomComponent implements OnInit, OnDestroy {
     this.roomService.update({currentVideoID: id, timestamp: Date.now()}).subscribe();
   }
 
-  currentVideo(): string {
-    console.log('https://www.youtube.com/embed/' + this.currentVideoId + '?autoplay=1&start=' + (this.timestamp - Date.now()));
-    return 'https://www.youtube.com/embed/' + this.currentVideoId + '?autoplay=1&start=' + (Date.now() - this.timestamp);
+  currentVideo(){
+    this.youtubeSrc = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.currentVideoId + '?autoplay=1&start=' + ( (this.timestamp - Date.now()) < 0 ? 0 : this.timestamp - Date.now() ));
   }
 
   urlToCode(url: string): string {
