@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../interfaces/user';
+import {Room} from '../interfaces/room';
 import {Videobdd} from '../interfaces/videobdd';
 import {environment} from '../../../environments/environment';
 const httpOptions = {
@@ -41,5 +42,24 @@ export class ConfigService {
   getVideos(room: string): Observable<Videobdd[]> {
     return this._http.get<Videobdd[]>(this._backendURL.roomVideos
       .replace(':room', room));
+  }
+
+  getVideo(room: string): Observable<Videobdd[]> {
+    return this._http.get<Videobdd[]>(this._backendURL.roomVideos
+      .replace(':room', room));
+  }
+
+  /**
+   * Function to create a new video
+   */
+  create(video: Videobdd): Observable<any> {
+    return this._http.post(this._backendURL.allvideos, video, this._options());
+  }
+
+  /**
+   * Function to return request options
+   */
+  private _options(headerList: object = {}): any {
+    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)), observe: 'response'};
   }
 }
