@@ -26,7 +26,7 @@
                   </mat-form-field>
 
                   <mat-form-field class="full-width">
-                    <input matInput placeholder="Mot de passe" formControlName="password" minlength="8" required name="password" />
+                    <input matInput type="password" placeholder="Mot de passe" formControlName="password" minlength="8" required name="password" />
                     <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('required')">
                       Avoir un mot de passe est <strong>obligatoire</strong>
                     </mat-error>
@@ -39,6 +39,8 @@
             </table>
           </form>
         </mat-dialog-content>
+
+        <nb-alert status="primary" *ngIf="getError()">Nom d'utilisateur ou mot de passe incorrect</nb-alert>
 
         <mat-dialog-actions align="end">
           <button mat-button type="button" [routerLink]="['/home']">Annuler</button>

@@ -21,6 +21,8 @@ export class ProfilComponent implements OnInit {
   private readonly _form: FormGroup;
   // private property to store a user
   private _user: User;
+  // private boolean to check if there's an error
+  private _error: boolean;
 
   /**
    * Component constructor
@@ -90,9 +92,11 @@ export class ProfilComponent implements OnInit {
     this._userService.update(user, localStorage.getItem('session')).subscribe(response => {
           if (response.status === 200) {
             localStorage.setItem('session', user.username)
+            this._error = false;
             this._router.navigate(['/home']);
           }
-        });
+        }, err =>
+    this._error = true);
   }
 
   /**
@@ -102,6 +106,10 @@ export class ProfilComponent implements OnInit {
     this._userService.delete(localStorage.getItem('session')).subscribe();
     localStorage.clear();
     this._router.navigate(['/home']);
+  }
+
+  getError(): boolean {
+    return this._error;
   }
 
   /**

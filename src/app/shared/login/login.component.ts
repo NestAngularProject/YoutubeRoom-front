@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit, OnChanges {
   private readonly _form: FormGroup;
   // private to store the user
   private _user: User
+  // private boolean to check error
+  private _error: boolean
 
   /**
    * Component constructor
@@ -85,14 +87,13 @@ export class LoginComponent implements OnInit, OnChanges {
   submit(user: User) {
     this._userService.fetchLogin(user.username, user.password).subscribe(res => {this._user = res,
       localStorage.setItem('session', this._user.username),
-    this._router.navigate(['/home']); });
+      this._error = false,
+    this._router.navigate(['/home']); }, err =>
+    this._error = true);
   }
 
-  /**
-   * Function to check if a session is on
-   */
-  isSessionOn(): boolean {
-    return localStorage.getItem('session') !== null;
+  getError(): boolean {
+    return this._error;
   }
 
   /**
